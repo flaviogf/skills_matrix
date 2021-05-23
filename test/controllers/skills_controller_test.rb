@@ -39,9 +39,31 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
     assert_equal 'Go', skill['name']
   end
 
+  test 'show should return not found when skill does not exist' do
+    csharp = Skill.new id: 4, name: 'C#'
+
+    get skill_path(csharp)
+
+    assert_response :not_found
+  end
+
   test 'new should return success' do
     get new_skill_path
 
     assert_response :success
+  end
+
+  test 'edit should return success' do
+    get edit_skill_path(skills(:go))
+
+    assert_response :success
+  end
+
+  test 'edit should return not found when skill does not exist' do
+    csharp = Skill.new id: 4, name: 'C#'
+
+    get edit_skill_path(csharp)
+
+    assert_response :not_found
   end
 end
