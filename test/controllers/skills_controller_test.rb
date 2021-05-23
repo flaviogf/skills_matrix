@@ -66,4 +66,48 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :not_found
   end
+
+  test 'create should redirect to the created skill' do
+    request_params = { skill: { name: 'C#' } }
+
+    post skills_path, params: request_params
+
+    assert_redirected_to skill_path(Skill.last)
+  end
+
+  test 'create should save the skill' do
+    request_params = { skill: { name: 'C#' } }
+
+    post skills_path, params: request_params
+
+    assert_equal 4, Skill.count
+
+    skill = Skill.last
+
+    assert_equal 'C#', skill.name
+  end
+
+  test 'create should return unprocessable entity when request params is not valid' do
+    request_params = { skill: { name: '' } }
+
+    post skills_path, params: request_params
+
+    assert_response :unprocessable_entity
+  end
+
+  test 'create as json should return created' do
+    request_params = { skill: { name: 'C#' } }
+
+    post skills_path, params: request_params, as: :json
+
+    assert_response :created
+  end
+
+  test 'create as json should return status unprocessable entity when request params is not valid' do
+    request_params = { skill: { name: '' } }
+
+    post skills_path, params: request_params, as: :json
+
+    assert_response :unprocessable_entity
+  end
 end
