@@ -38,4 +38,10 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
     assert_equal 1, skill['id']
     assert_equal 'Go', skill['name']
   end
+
+  test 'new should return success' do
+    get new_skill_path
+
+    assert_response :success
+  end
 end
