@@ -1,12 +1,12 @@
 ### User Stories
 
-[ ] As an admin I can create a skill
+[x] As an admin I can create a skill
 
-[ ] As an admin I can list my skills
+[x] As an admin I can list my skills
 
-[ ] As an admin I can see a skill
+[x] As an admin I can see a skill
 
-[ ] As an admin I can update a skill
+[x] As an admin I can update a skill
 
 [ ] As an admin I can destroy a skill
 
