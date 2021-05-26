@@ -33,13 +33,8 @@ class SkillsController < ApplicationController
   def update
     if @skill.update(skill_params)
       respond_to do |format|
-<<<<<<< HEAD
         format.html { redirect_to @skill }
         format.json { render :show, status: :ok, location: @skill }
-=======
-        format.html { redirect_to skill_path(@skill) }
-        format.json { head :no_content }
->>>>>>> ac951f7da047536b357bb2b62ff31182f41d1b08
       end
     else
       respond_to do |format|
