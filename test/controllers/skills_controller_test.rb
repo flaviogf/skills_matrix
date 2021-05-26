@@ -162,4 +162,28 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :unprocessable_entity
   end
+
+  test 'destroy should redirect to skills path' do
+    skill = skills(:go)
+
+    delete skill_path(skill)
+
+    assert_redirected_to skills_path
+  end
+
+  test 'destroy should delete the skill' do
+    skill = skills(:go)
+
+    delete skill_path(skill)
+
+    assert_equal 2, Skill.count
+  end
+
+  test 'destroy as json should return no content' do
+    skill = skills(:go)
+
+    delete skill_path(skill), as: :json
+
+    assert_response :no_content
+  end
 end

@@ -1,5 +1,5 @@
 class SkillsController < ApplicationController
-  before_action :set_skill, only: [:show, :edit, :update]
+  before_action :set_skill, only: [:show, :edit, :update, :destroy]
 
   def index
     @skills = Skill.all
@@ -41,6 +41,15 @@ class SkillsController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @skill.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroy
+    @skill.destroy
+
+    respond_to do |format|
+      format.html { redirect_to skills_path }
+      format.json { head :no_content }
     end
   end
 
