@@ -8,7 +8,7 @@
 
 [x] As an admin I can update a skill
 
-[ ] As an admin I can destroy a skill
+[x] As an admin I can destroy a skill
 
 [ ] As an admin I can create a team
 
