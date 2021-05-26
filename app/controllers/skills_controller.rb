@@ -19,8 +19,8 @@ class SkillsController < ApplicationController
 
     if @skill.save
       respond_to do |format|
-        format.html { redirect_to skill_path(@skill) }
-        format.json { render json: @skill, status: :created, location: skill_path(@skill) }
+        format.html { redirect_to @skill }
+        format.json { render json: @skill, status: :created, location: @skill }
       end
     else
       respond_to do |format|
