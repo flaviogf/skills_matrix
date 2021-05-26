@@ -111,7 +111,11 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
     assert_response :unprocessable_entity
   end
 
+<<<<<<< HEAD
   test 'update should redirect to the updated skill' do
+=======
+  test 'update should redirect to updated skill' do
+>>>>>>> ac951f7da047536b357bb2b62ff31182f41d1b08
     skill = skills(:go)
 
     request_params = { skill: { name: 'C#' } }
@@ -121,7 +125,11 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to skill_path(skill)
   end
 
+<<<<<<< HEAD
   test 'update should save the changes made at skill' do
+=======
+  test 'update should apply the changes to the skill' do
+>>>>>>> ac951f7da047536b357bb2b62ff31182f41d1b08
     skill = skills(:go)
 
     request_params = { skill: { name: 'C#' } }
@@ -143,14 +151,22 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
     assert_response :unprocessable_entity
   end
 
+<<<<<<< HEAD
   test 'update as json should return ok' do
+=======
+  test 'update as json should return no content' do
+>>>>>>> ac951f7da047536b357bb2b62ff31182f41d1b08
     skill = skills(:go)
 
     request_params = { skill: { name: 'C#' } }
 
     put skill_path(skill), params: request_params, as: :json
 
+<<<<<<< HEAD
     assert_response :ok
+=======
+    assert_response :no_content
+>>>>>>> ac951f7da047536b357bb2b62ff31182f41d1b08
   end
 
   test 'update as json should return unprocessable entity when request params is not valid' do
