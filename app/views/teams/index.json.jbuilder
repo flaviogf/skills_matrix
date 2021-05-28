@@ -1,4 +1,1 @@
-json.array! @teams do |team|
-  json.id team.id
-  json.name team.name
-end
+json.partial! 'teams/team', collection: @teams, as: :team
