@@ -18,7 +18,7 @@
 
 [x] As an admin I can update a team
 
-[ ] As an admin I can destroy a team
+[x] As an admin I can destroy a team
 
 [ ] As a user I can create an account
 

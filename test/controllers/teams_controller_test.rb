@@ -166,4 +166,36 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :unprocessable_entity
   end
+
+  test 'destroy should redirect to teams path' do
+    team = teams(:dc)
+
+    delete team_path(team)
+
+    assert_redirected_to teams_path
+  end
+
+  test 'destroy should delete the team' do
+    team = teams(:dc)
+
+    delete team_path(team)
+
+    assert_equal 1, Team.count
+  end
+
+  test 'destroy should return not found when team does not exist' do
+    team = Team.new id: 4, name: 'Vertigo'
+
+    delete team_path(team)
+
+    assert_response :not_found
+  end
+
+  test 'destroy as json should return no content' do
+    team = teams(:dc)
+
+    delete team_path(team), as: :json
+
+    assert_response :no_content
+  end
 end

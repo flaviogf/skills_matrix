@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update]
+  before_action :set_team, only: [:show, :edit, :update, :destroy]
 
   def index
     @teams = Team.all
@@ -42,6 +42,15 @@ class TeamsController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @team.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroy
+    @team.destroy
+
+    respond_to do |format|
+      format.html { redirect_to teams_path }
+      format.json { head :no_content }
     end
   end
 
