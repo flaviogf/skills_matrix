@@ -63,4 +63,47 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :not_found
   end
+
+  test 'create should redirect to created team' do
+    request_params = { team: { name: 'Vertigo' } }
+
+    post teams_path, params: request_params
+
+    assert_redirected_to team_path(Team.last)
+  end
+
+  test 'create should save the new team' do
+    request_params = { team: { name: 'Vertigo' } }
+
+    post teams_path, params: request_params
+
+    team = Team.last
+
+    assert_equal 3, Team.count
+    assert_equal 'Vertigo', team.name
+  end
+
+  test 'create should return unprocessable entity when request params is not valid' do
+    request_params = { team: { name: '' } }
+
+    post teams_path, params: request_params
+
+    assert_response :unprocessable_entity
+  end
+
+  test 'create as json should return status created' do
+    request_params = { team: { name: 'Vertigo' } }
+
+    post teams_path, params: request_params, as: :json
+
+    assert_response :created
+  end
+
+  test 'create as json should return status unprocessable entity when request params is not valid' do
+    request_params = { team: { name: '' } }
+
+    post teams_path, params: request_params, as: :json
+
+    assert_response :unprocessable_entity
+  end
 end
