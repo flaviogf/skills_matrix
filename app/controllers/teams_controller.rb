@@ -8,6 +8,10 @@ class TeamsController < ApplicationController
   def show
   end
 
+  def new
+    @team = Team.new
+  end
+
   private
   def set_team
     @team = Team.find params[:id]

@@ -41,4 +41,10 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
     assert_equal 1, team['id']
     assert_equal 'DC', team['name']
   end
+
+  test 'new should return ok' do
+    get new_team_path
+
+    assert_response :ok
+  end
 end
