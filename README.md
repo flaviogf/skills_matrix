@@ -10,13 +10,13 @@
 
 [x] As an admin I can destroy a skill
 
-[ ] As an admin I can create a team
+[x] As an admin I can create a team
 
-[ ] As an admin I can list my teams
+[x] As an admin I can list my teams
 
-[ ] As an admin I can see a team
+[x] As an admin I can see a team
 
-[ ] As an admin I can update a team
+[x] As an admin I can update a team
 
 [ ] As an admin I can destroy a team
 
