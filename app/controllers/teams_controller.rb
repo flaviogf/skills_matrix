@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show]
+  before_action :set_team, only: [:show, :edit]
 
   def index
     @teams = Team.all
@@ -10,6 +10,9 @@ class TeamsController < ApplicationController
 
   def new
     @team = Team.new
+  end
+
+  def edit
   end
 
   private

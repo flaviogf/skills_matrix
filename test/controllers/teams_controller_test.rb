@@ -47,4 +47,20 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :ok
   end
+
+  test 'edit should return ok' do
+    team = teams(:dc)
+
+    get edit_team_path(team)
+
+    assert_response :ok
+  end
+
+  test 'edit should return not found when team does not exist' do
+    team = Team.new id: 4, name: 'Vertigo'
+
+    get edit_team_path(team)
+
+    assert_response :not_found
+  end
 end
