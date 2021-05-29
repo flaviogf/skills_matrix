@@ -106,4 +106,64 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :unprocessable_entity
   end
+
+  test 'update should redirect to the updated team' do
+    request_params = { team: { name: 'Vertigo' } }
+
+    put team_path(teams(:dc)), params: request_params
+
+    assert_redirected_to teams(:dc)
+  end
+
+  test 'update should save the changes made at the team' do
+    request_params = { team: { name: 'Vertigo' } }
+
+    team = teams(:dc)
+
+    put team_path(team), params: request_params
+
+    team.reload
+
+    assert_equal 'Vertigo', team.name
+  end
+
+  test 'update should return unprocessable entity when request params is not valid' do
+    request_params = { team: { name: '' } }
+
+    team = teams(:dc)
+
+    put team_path(team), params: request_params
+
+    assert_response :unprocessable_entity
+  end
+
+  test 'update should return not found when team does not exist' do
+    request_params = { team: { name: '' } }
+
+    team = Team.new id: 4, name: 'Vertigo'
+
+    put team_path(team), params: request_params
+
+    assert_response :not_found
+  end
+
+  test 'update as json should return ok' do
+    request_params = { team: { name: 'Vertigo' } }
+
+    team = teams(:dc)
+
+    put team_path(team), params: request_params, as: :json
+
+    assert_response :ok
+  end
+
+  test 'update as json should return unprocessable entity when request params is not valid' do
+    request_params = { team: { name: '' } }
+
+    team = teams(:dc)
+
+    put team_path(team), params: request_params, as: :json
+
+    assert_response :unprocessable_entity
+  end
 end

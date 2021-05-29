@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit]
+  before_action :set_team, only: [:show, :edit, :update]
 
   def index
     @teams = Team.all
@@ -26,6 +26,20 @@ class TeamsController < ApplicationController
     else
       respond_to do |format|
         format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @team.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    if @team.update(team_params)
+      respond_to do |format|
+        format.html { redirect_to @team }
+        format.json { render :show, status: :ok, location: @team }
+      end
+    else
+      respond_to do |format|
+        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @team.errors, status: :unprocessable_entity }
       end
     end
