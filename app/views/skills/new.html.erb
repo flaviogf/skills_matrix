@@ -1,1 +1,15 @@
-<h1>New Skill</h1>
+<main class="skills">
+  <%= form_with model: @skill do |form| %>
+    <div class="skills__form-group">
+      <%= form.label :name, class: 'skills__form-label' %>
+      <%= form.text_field :name, class: 'skills__form-input' %>
+      <% @skill.errors.full_messages_for(:name).each do |message| %>
+        <span class="skills__form-error"><%= message %></span>
+      <% end %>
+    </div>
+
+    <div class="skills__form-group">
+      <button class="skills__form-submit"><span class="material-icons">add</span></button>
+    </div>
+  <% end %>
+</main>

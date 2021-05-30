@@ -1,3 +1,61 @@
-// Place all the styles related to the Skills controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.skills {
+  padding: 16px;
+
+  &__form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .field_with_errors > &__form-input {
+    border: 1px solid #db2828;
+
+    &:focus {
+      border: 1px solid #db2828;
+    }
+  }
+
+  &__form-input {
+    border: 1px solid #dededf;
+    border-radius: 3px;
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    height: 35px;
+    margin-top: 5px;
+    max-width: 736px;
+    outline: none;
+    padding: 5px 13px;
+    transition: border 0.2s;
+    width: 100%;
+
+    &:focus {
+      border: 1px solid #1678c2;
+    }
+  }
+
+  &__form-error {
+    color: #db2828;
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 5px;
+  }
+
+  &__form-submit {
+    align-items: center;
+    background-color: #21ba45;
+    border: none;
+    border-radius: 50%;
+    bottom: 32px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    left: calc(50vw - 25px);
+    position: fixed;
+    width: 50px;
+  }
+}
