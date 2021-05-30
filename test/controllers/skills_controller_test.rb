@@ -2,19 +2,19 @@ require "test_helper"
 
 class SkillsControllerTest < ActionDispatch::IntegrationTest
   test 'index should return success' do
-    get skills_path
+    get skills_path, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_response :success
   end
 
   test 'index as json should return success' do
-    get skills_path, as: :json
+    get skills_path, as: :json, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_response :success
   end
 
   test 'index as json should return a list of skills' do
-    get skills_path, as: :json
+    get skills_path, as: :json, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     skills = @response.parsed_body
 
@@ -25,13 +25,13 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'show should return success' do
-    get skill_path(skills(:go))
+    get skill_path(skills(:go)), headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_response :success
   end
 
   test 'show as json should return a skill' do
-    get skill_path(skills(:go)), as: :json
+    get skill_path(skills(:go)), as: :json, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     skill = @response.parsed_body
 
@@ -42,19 +42,19 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
   test 'show should return not found when skill does not exist' do
     csharp = Skill.new id: 4, name: 'C#'
 
-    get skill_path(csharp)
+    get skill_path(csharp), headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_response :not_found
   end
 
   test 'new should return success' do
-    get new_skill_path
+    get new_skill_path, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_response :success
   end
 
   test 'edit should return success' do
-    get edit_skill_path(skills(:go))
+    get edit_skill_path(skills(:go)), headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_response :success
   end
@@ -62,7 +62,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
   test 'edit should return not found when skill does not exist' do
     csharp = Skill.new id: 4, name: 'C#'
 
-    get edit_skill_path(csharp)
+    get edit_skill_path(csharp), headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_response :not_found
   end
@@ -70,7 +70,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
   test 'create should redirect to the created skill' do
     request_params = { skill: { name: 'C#' } }
 
-    post skills_path, params: request_params
+    post skills_path, params: request_params, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_redirected_to skill_path(Skill.last)
   end
@@ -78,7 +78,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
   test 'create should save the skill' do
     request_params = { skill: { name: 'C#' } }
 
-    post skills_path, params: request_params
+    post skills_path, params: request_params, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_equal 4, Skill.count
 
@@ -90,7 +90,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
   test 'create should return unprocessable entity when request params is not valid' do
     request_params = { skill: { name: '' } }
 
-    post skills_path, params: request_params
+    post skills_path, params: request_params, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_response :unprocessable_entity
   end
@@ -98,7 +98,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
   test 'create as json should return created' do
     request_params = { skill: { name: 'C#' } }
 
-    post skills_path, params: request_params, as: :json
+    post skills_path, params: request_params, as: :json, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_response :created
   end
@@ -106,7 +106,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
   test 'create as json should return status unprocessable entity when request params is not valid' do
     request_params = { skill: { name: '' } }
 
-    post skills_path, params: request_params, as: :json
+    post skills_path, params: request_params, as: :json, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_response :unprocessable_entity
   end
@@ -116,7 +116,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
 
     request_params = { skill: { name: 'C#' } }
 
-    put skill_path(skill), params: request_params
+    put skill_path(skill), params: request_params, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_redirected_to skill_path(skill)
   end
@@ -126,7 +126,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
 
     request_params = { skill: { name: 'C#' } }
 
-    put skill_path(skill), params: request_params
+    put skill_path(skill), params: request_params, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     skill.reload
 
@@ -138,7 +138,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
 
     request_params = { skill: { name: '' } }
 
-    put skill_path(skill), params: request_params
+    put skill_path(skill), params: request_params, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_response :unprocessable_entity
   end
@@ -148,7 +148,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
 
     request_params = { skill: { name: 'C#' } }
 
-    put skill_path(skill), params: request_params, as: :json
+    put skill_path(skill), params: request_params, as: :json, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_response :ok
   end
@@ -158,7 +158,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
 
     request_params = { skill: { name: '' } }
 
-    put skill_path(skill), params: request_params, as: :json
+    put skill_path(skill), params: request_params, as: :json, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_response :unprocessable_entity
   end
@@ -166,7 +166,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
   test 'destroy should redirect to skills path' do
     skill = skills(:go)
 
-    delete skill_path(skill)
+    delete skill_path(skill), headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_redirected_to skills_path
   end
@@ -174,7 +174,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
   test 'destroy should delete the skill' do
     skill = skills(:go)
 
-    delete skill_path(skill)
+    delete skill_path(skill), headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_equal 2, Skill.count
   end
@@ -182,8 +182,14 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
   test 'destroy as json should return no content' do
     skill = skills(:go)
 
-    delete skill_path(skill), as: :json
+    delete skill_path(skill), as: :json, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
     assert_response :no_content
+  end
+
+  test 'index should return unauthorized when authorization header is not passed' do
+    get skills_path
+
+    assert_response :unauthorized
   end
 end

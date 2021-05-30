@@ -1,4 +1,6 @@
 class SkillsController < ApplicationController
+  http_basic_authenticate_with name: ENV['APP_USER'], password: ENV['APP_PASS']
+
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
 
   def index
