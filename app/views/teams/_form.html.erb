@@ -1,0 +1,10 @@
+<%= form_with model: team do |form| %>
+  <div class="teams__form-group">
+    <%= form.label :name, class: 'teams__form-label' %>
+    <%= form.text_field :name, class: 'teams__form-input' %>
+  </div>
+
+  <teams__form-group>
+    <button class="teams__form-button"><span class="material-icons">check</span></button>
+  </teams__form-group>
+<% end %>

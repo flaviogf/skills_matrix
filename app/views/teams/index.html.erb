@@ -2,7 +2,7 @@
   <ul class="teams__list">
     <% @teams.each do |team| %>
     <li class="teams__item">
-      <%= link_to team do %>
+      <%= link_to edit_team_path(team) do %>
         <span><%= team.name %></span>
        <% end %>
     </li>
