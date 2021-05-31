@@ -1,6 +1,10 @@
 .skills {
   padding: 16px;
 
+  .field_with_errors > &__form-label {
+    color: #db2828;
+  }
+
   &__form-label {
     display: block;
     font-size: 14px;
@@ -41,7 +45,7 @@
     margin-top: 5px;
   }
 
-  &__form-submit {
+  &__form-button {
     align-items: center;
     background-color: #21ba45;
     border: none;
@@ -56,5 +60,38 @@
     position: fixed;
     right: 32px;
     width: 50px;
+  }
+
+  &__list {
+  }
+
+  &__item:first-of-type {
+    margin-top: 0px;
+  }
+
+  &__item > a {
+    align-items: center;
+    border-bottom: 1px solid #dededf;
+    color: #000000;
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    margin-top: 8px;
+    padding: 5px 8px 5px 0px;
+    text-decoration: none;
+  }
+
+  &__avatar {
+    align-items: center;
+    background: #cacbcd;
+    border-radius: 50%;
+    color: #383939;
+    display: flex;
+    justify-content: center;
+    height: 35px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 11px;
+    width: 35px;
   }
 }
