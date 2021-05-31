@@ -22,7 +22,7 @@ class SkillsController < ApplicationController
 
     if @skill.save
       respond_to do |format|
-        format.html { redirect_to @skill }
+        format.html { redirect_to edit_skill_path(@skill) }
         format.json { render json: @skill, status: :created, location: @skill }
       end
     else
@@ -36,7 +36,7 @@ class SkillsController < ApplicationController
   def update
     if @skill.update(skill_params)
       respond_to do |format|
-        format.html { redirect_to @skill }
+        format.html { redirect_to edit_skill_path(@skill) }
         format.json { render :show, status: :ok, location: @skill }
       end
     else

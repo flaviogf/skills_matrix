@@ -72,7 +72,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
 
     post skills_path, params: request_params, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
-    assert_redirected_to skill_path(Skill.last)
+    assert_redirected_to edit_skill_path(Skill.last)
   end
 
   test 'create should save the skill' do
@@ -118,7 +118,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
 
     put skill_path(skill), params: request_params, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
-    assert_redirected_to skill_path(skill)
+    assert_redirected_to edit_skill_path(skill)
   end
 
   test 'update should save the changes made at skill' do

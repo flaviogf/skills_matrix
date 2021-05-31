@@ -2,9 +2,12 @@
   <div class="teams__form-group">
     <%= form.label :name, class: 'teams__form-label' %>
     <%= form.text_field :name, class: 'teams__form-input' %>
+    <% team.errors.full_messages_for(:name).each do |message| %>
+      <span class="teams__form-error"><%= message %></span>
+    <% end %>
   </div>
 
-  <teams__form-group>
+  <div>
     <button class="teams__form-button"><span class="material-icons">check</span></button>
-  </teams__form-group>
+  </div>
 <% end %>

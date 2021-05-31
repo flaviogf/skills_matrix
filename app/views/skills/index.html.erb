@@ -2,7 +2,7 @@
   <ul class="skills__list">
     <% @skills.each do |skill| %>
       <li class="skills__item">
-        <%= link_to skill do %>
+        <%= link_to edit_skill_path(skill) do %>
         <span><%= skill.name %></span>
         <% end %>
       </li>
