@@ -3,7 +3,6 @@
     <% @skills.each do |skill| %>
       <li class="skills__item">
         <%= link_to skill do %>
-        <span class="skills__avatar"><%= skill.name[0].upcase %></span>
         <span><%= skill.name %></span>
         <% end %>
       </li>
@@ -14,6 +13,5 @@
     <button class="skills__form-button"><span class="material-icons">add</span></button>
   <% end %>
 </main>
-
 
 <%= render 'shared/bottom-bar' %>

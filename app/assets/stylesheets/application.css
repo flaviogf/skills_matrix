@@ -35,3 +35,8 @@ html {
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "liga";
 }
+
+html,
+body {
+  background-color: #121212;
+}

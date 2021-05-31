@@ -1,14 +1,24 @@
 .skills {
   padding: 16px;
 
+  &__form-group {
+    position: relative;
+  }
+
   .field_with_errors > &__form-label {
     color: #db2828;
   }
 
   &__form-label {
+    background-color: #121212;
+    color: #fff;
     display: block;
     font-size: 14px;
     font-weight: 500;
+    padding: 8px 13px;
+    position: absolute;
+    top: -16px;
+    left: 16px;
   }
 
   .field_with_errors > &__form-input {
@@ -20,20 +30,21 @@
   }
 
   &__form-input {
+    background-color: #121212;
     border: 1px solid #dededf;
     border-radius: 3px;
+    color: #fff;
     display: block;
     font-size: 16px;
-    font-weight: 400;
-    height: 35px;
+    font-weight: 300;
     margin-top: 5px;
     outline: none;
-    padding: 5px 13px;
+    padding: 21px 13px;
     transition: border 0.2s;
     width: 100%;
 
     &:focus {
-      border: 1px solid #1678c2;
+      border: 1px solid #21ba45;
     }
   }
 
@@ -51,7 +62,6 @@
     border: none;
     border-radius: 50%;
     bottom: 32px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     color: white;
     cursor: pointer;
     display: flex;
@@ -71,27 +81,27 @@
 
   &__item > a {
     align-items: center;
-    border-bottom: 1px solid #dededf;
-    color: #000000;
+    background-color: #1f1f1f;
+    border-radius: 2px;
+    color: #ffffff;
     cursor: pointer;
     display: flex;
-    font-size: 14px;
-    margin-top: 8px;
-    padding: 5px 8px 5px 0px;
-    text-decoration: none;
-  }
-
-  &__avatar {
-    align-items: center;
-    background: #cacbcd;
-    border-radius: 50%;
-    color: #383939;
-    display: flex;
-    justify-content: center;
-    height: 35px;
     font-size: 18px;
-    font-weight: 500;
-    margin-right: 11px;
-    width: 35px;
+    font-weight: 300;
+    margin-top: 8px;
+    padding: 21px 13px;
+    position: relative;
+    text-decoration: none;
+
+    &::before {
+      content: "";
+      background-color: #21ba45;
+      border-radius: 2px 2px 0 0;
+      height: 2px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
   }
 }

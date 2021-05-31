@@ -1,1 +1,17 @@
-<h1>Teams</h1>
+<main class="teams">
+  <ul class="teams__list">
+    <% @teams.each do |team| %>
+    <li class="teams__item">
+      <%= link_to team do %>
+        <span><%= team.name %></span>
+       <% end %>
+    </li>
+    <% end %>
+  </ul>
+
+  <%= link_to new_team_path do %>
+    <button class="teams__form-button"><span class="material-icons">add</span></button>
+  <% end %>
+</main>
+
+<%= render 'shared/bottom-bar' %>
