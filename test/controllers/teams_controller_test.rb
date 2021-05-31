@@ -69,7 +69,7 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
 
     post teams_path, params: request_params, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
-    assert_redirected_to team_path(Team.last)
+    assert_redirected_to edit_team_path(Team.last)
   end
 
   test 'create should save the new team' do
@@ -112,7 +112,7 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
 
     put team_path(teams(:dc)), params: request_params, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(ENV['APP_USER'], ENV['APP_PASS']) }
 
-    assert_redirected_to teams(:dc)
+    assert_redirected_to edit_team_path(teams(:dc))
   end
 
   test 'update should save the changes made at the team' do

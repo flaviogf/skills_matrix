@@ -22,7 +22,7 @@ class TeamsController < ApplicationController
 
     if @team.save
       respond_to do |format|
-        format.html { redirect_to @team }
+        format.html { redirect_to edit_team_path(@team) }
         format.json { render json: @body, location: @body, status: :created }
       end
     else
@@ -36,7 +36,7 @@ class TeamsController < ApplicationController
   def update
     if @team.update(team_params)
       respond_to do |format|
-        format.html { redirect_to @team }
+        format.html { redirect_to edit_team_path(@team) }
         format.json { render :show, status: :ok, location: @team }
       end
     else
