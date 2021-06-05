@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "skills#index"
+  root "sessions#new"
 
   resources :skills
   resources :teams
