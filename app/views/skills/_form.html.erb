@@ -1,13 +1,13 @@
 <%= form_with model: skill do |form| %>
-  <div class="skills__form-group">
-    <%= form.label :name, class: 'skills__form-label' %>
-    <%= form.text_field :name, class: 'skills__form-input' %>
+  <div class="form__group">
+    <%= form.label :name, class: 'form__label' %>
+    <%= form.text_field :name, class: 'form__input' %>
     <% skill.errors.full_messages_for(:name).each do |message| %>
-      <span class="skills__form-error"><%= message %></span>
+      <span class="form__error"><%= message %></span>
     <% end %>
   </div>
 
-  <div class="skills__form-group">
+  <div class="form__group">
     <button class="skills__form-button"><span class="material-icons">check</span></button>
   </div>
 <% end %>

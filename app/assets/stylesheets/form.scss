@@ -1,0 +1,56 @@
+.form {
+  &__group {
+    position: relative;
+  }
+
+  .field_with_errors > &__label {
+    color: #db2828;
+  }
+
+  &__label {
+    background-color: #121212;
+    color: #fff;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 13px;
+    position: absolute;
+    top: -16px;
+    left: 16px;
+  }
+
+  .field_with_errors > &__input {
+    border: 1px solid #db2828;
+
+    &:focus {
+      border: 1px solid #db2828;
+    }
+  }
+
+  &__input {
+    background-color: #121212;
+    border: 1px solid #dededf;
+    border-radius: 3px;
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 5px;
+    outline: none;
+    padding: 21px 13px;
+    transition: border 0.2s;
+    width: 100%;
+
+    &:focus {
+      border: 1px solid #21ba45;
+    }
+  }
+
+  &__error {
+    color: #db2828;
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 5px;
+  }
+}
