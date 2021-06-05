@@ -22,6 +22,8 @@
 
 [ ] As a user I can create an account
 
+[ ] As a user I can log in to my account
+
 [ ] As a user I can update my skill points
 
 [ ] As an admin I can list the registered users
