@@ -22,7 +22,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
     user = User.last
 
-    assert_equal 2, User.count
+    assert_equal 3, User.count
     assert_equal 'Bruce', user.name
     assert_equal 'bruce@wayne.com', user.email
   end

@@ -34,4 +34,20 @@ class UserTest < ActiveSupport::TestCase
 
     assert_not user.save
   end
+
+  test 'equal? should be true' do
+    user1 = users(:frank)
+
+    user2 = users(:frank)
+
+    assert user1.equal?(user2)
+  end
+
+  test 'equal? should be false' do
+    user1 = users(:frank)
+
+    user2 = users(:peter)
+
+    assert_not user1.equal?(user2)
+  end
 end

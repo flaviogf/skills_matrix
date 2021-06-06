@@ -4,4 +4,10 @@ frank:
   id: 1
   name: Frank Castle
   email: frank@email.com
-  password_digest: 'hash'
+  password_digest: '$2a$12$YxVAQmTMMXPmC3BcgpYfLezCDbv2.MPzqDscI/JGLOnXl0s09y01.'
+
+peter:
+  id: 2
+  name: Peter Parker
+  email: peter@email.com
+  password_digest: '$2a$12$YxVAQmTMMXPmC3BcgpYfLezCDbv2.MPzqDscI/JGLOnXl0s09y01.'
