@@ -11,6 +11,8 @@ class SessionsController < ApplicationController
     else
       @user = User.new(email: session_params[:email])
 
+      flash[:error] = 'Invalid email or password'
+
       render :new, status: :unauthorized
     end
   end

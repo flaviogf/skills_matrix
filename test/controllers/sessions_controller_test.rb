@@ -34,4 +34,12 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :unauthorized
   end
+
+  test 'create should return error when email or password are invalid' do
+    request_params = { user: { email: 'frank@email.com', password: 'test1234' } }
+
+    post sessions_path, params: request_params
+
+    assert_equal 'Invalid email or password', flash[:error]
+  end
 end
