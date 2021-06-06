@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
 
-  def equal?(other)
+  def ==(other)
     self.attributes == other.attributes
   end
 end
