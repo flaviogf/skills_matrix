@@ -6,4 +6,32 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :ok
   end
+
+  test 'create should redirect to user profiles' do
+    request_params = { user: { email: 'frank@email.com', password: 'test123' } }
+
+    post sessions_path, params: request_params
+
+    assert_redirected_to user_profiles_path
+  end
+
+  test 'create should set current user' do
+    request_params = { user: { email: 'frank@email.com', password: 'test123' } }
+
+    post sessions_path, params: request_params
+
+    user = users(:frank)
+
+    current_user = @controller.send(:current_user)
+
+    assert_equal user, current_user
+  end
+
+  test 'create should return unauthorized when email or password are invalid' do
+    request_params = { user: { email: 'frank@email.com', password: 'test1234' } }
+
+    post sessions_path, params: request_params
+
+    assert_response :unauthorized
+  end
 end
