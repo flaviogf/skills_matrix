@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_signed_in?
-    current_user
+    session[:current_user_id].present?
   end
 
   def current_user

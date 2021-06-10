@@ -8,7 +8,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'create should redirect to user profiles' do
-    request_params = { user: { email: 'frank@email.com', password: 'test123' } }
+    request_params = { session: { email: 'frank@email.com', password: 'test123' } }
 
     post sessions_path, params: request_params
 
@@ -16,7 +16,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'create should set current user' do
-    request_params = { user: { email: 'frank@email.com', password: 'test123' } }
+    request_params = { session: { email: 'frank@email.com', password: 'test123' } }
 
     post sessions_path, params: request_params
 
@@ -28,7 +28,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'create should return unauthorized when email or password are invalid' do
-    request_params = { user: { email: 'frank@email.com', password: 'test1234' } }
+    request_params = { session: { email: 'frank@email.com', password: 'test1234' } }
 
     post sessions_path, params: request_params
 
@@ -36,7 +36,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'create should return error when email or password are invalid' do
-    request_params = { user: { email: 'frank@email.com', password: 'test1234' } }
+    request_params = { session: { email: 'frank@email.com', password: 'test1234' } }
 
     post sessions_path, params: request_params
 
