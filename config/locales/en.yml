@@ -38,3 +38,7 @@ en:
     show:
       email: 'Email: %{email}'
       role: 'Role: %{role}'
+
+  sessions:
+    create:
+      success: Welcome back!
