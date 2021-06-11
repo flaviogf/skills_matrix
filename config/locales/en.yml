@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+
+  users:
+    create:
+      success: User successfully created!
+    show:
+      email: 'Email: %{email}'
+      role: 'Role: %{role}'
