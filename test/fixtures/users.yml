@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+regular:
+  name: Admin
+  email: admin@email.com
+  password_digest: <%= BCrypt::Password.create('test') %>
+  role: admin
+
+regular:
+  name: Regular
+  email: regular@email.com
+  password_digest: <%= BCrypt::Password.create('test') %>
+  role: regular
