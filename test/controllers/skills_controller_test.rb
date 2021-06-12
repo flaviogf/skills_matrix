@@ -22,4 +22,70 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
   end
+
+  test 'should get new' do
+    sign_in users(:admin)
+
+    get new_skill_path
+
+    assert_response :success
+  end
+
+  test 'should create skill' do
+    assert_difference('Skill.count') do
+      sign_in users(:admin)
+
+      post skills_path, params: { skill: { name: 'Ruby' } }
+    end
+
+    assert_redirected_to skill_path(Skill.last)
+  end
+
+  test 'should not create when attributes are invalid' do
+    sign_in users(:admin)
+
+    post skills_path, params: { skill: { name: '' } }
+
+    assert_response :unprocessable_entity
+  end
+
+  test 'should get show' do
+    sign_in users(:admin)
+
+    get skill_path(skills(:ruby))
+
+    assert_response :success
+  end
+
+  test 'should get edit' do
+    sign_in users(:admin)
+
+    get edit_skill_path(skills(:ruby))
+
+    assert_response :success
+  end
+
+  test 'should update skill' do
+    sign_in users(:admin)
+
+    skill = skills(:ruby)
+
+    put skill_path(skill), params: { skill: { name: 'JavaScript' } }
+
+    assert_redirected_to skill_path(skill)
+
+    skill.reload
+
+    assert_equal 'JavaScript', skill.name
+  end
+
+  test 'should not update skill if attributes are invalid' do
+    sign_in users(:admin)
+
+    skill = skills(:ruby)
+
+    put skill_path(skill), params: { skill: { name: '' } }
+
+    assert_response :unprocessable_entity
+  end
 end

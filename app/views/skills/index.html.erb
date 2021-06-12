@@ -1,1 +1,11 @@
-<h1>Skills</h1>
+<ul>
+  <% @skills.each do |skill| %>
+    <li>
+      <%= link_to skill do %>
+        <%= skill.name %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to t('skills.index.new'), new_skill_path %>

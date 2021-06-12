@@ -5,10 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-role = Role.new(name: 'Admin')
-role.id = 1
-role.save!
+roles = Role.create([{ name: 'Admin' }, { name: 'Staff' }])
 
-role = Role.create(name: 'Staff')
-role.id = 2
-role.save!
+User.create(name: 'Admin', email: 'admin@email.com', password_digest: BCrypt::Password.create('test'), role: roles.first)

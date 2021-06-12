@@ -30,7 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  application:
+    links:
+      back: Back
 
   users:
     create:
@@ -42,3 +44,13 @@ en:
   sessions:
     create:
       success: Welcome back!
+
+  skills:
+    index:
+      new: New skill
+    create:
+      success: Skill successfully created!
+    show:
+      edit: 'Edit Skill'
+    update:
+      success: Skill successfully updated!
