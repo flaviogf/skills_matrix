@@ -4,11 +4,7 @@ class Role < ApplicationRecord
 
   has_many :users
 
-  def self.admin
-    Role.find(ADMIN)
-  end
+  scope :admin, -> { find(ADMIN) }
 
-  def self.staff
-    Role.find(STAFF)
-  end
+  scope :staff, -> { find(STAFF) }
 end
