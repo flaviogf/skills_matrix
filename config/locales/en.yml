@@ -31,10 +31,11 @@
 
 en:
   application:
-    links:
-      back: Back
+    back: Back
 
   users:
+    new:
+      sign_in: Sign In
     create:
       success: User successfully created!
     show:
@@ -42,6 +43,8 @@ en:
       role: 'Role: %{role}'
 
   sessions:
+    new:
+      sign_up: Sign Up
     create:
       success: Welcome back!
 
