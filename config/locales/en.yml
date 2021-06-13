@@ -32,6 +32,8 @@
 en:
   application:
     back: Back
+    profile: Profile
+    skills: Skills
 
   users:
     new:
