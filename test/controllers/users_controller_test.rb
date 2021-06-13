@@ -36,7 +36,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get show' do
-    user = users(:regular)
+    user = users(:admin)
 
     sign_in user
 
@@ -49,5 +49,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get user_path(users(:regular))
 
     assert_redirected_to new_sessions_path
+  end
+
+  test 'should not get show if user is not authorized' do
+    sign_in users(:regular)
+
+    get user_path(users(:regular))
+
+    assert_redirected_to dashboards_path
   end
 end

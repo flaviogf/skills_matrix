@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action -> { authorize(:staff) }, only: [:show]
+  before_action -> { authorize(:admin) }, only: [:show]
 
   def new
     @user = Role.staff.users.new
