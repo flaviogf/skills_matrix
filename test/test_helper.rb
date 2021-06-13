@@ -8,6 +8,12 @@ module SignInHelper
   end
 end
 
+module SignOutHelper
+  def sign_out
+    delete sessions_path
+  end
+end
+
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
@@ -20,4 +26,5 @@ end
 
 class ActionDispatch::IntegrationTest
   include SignInHelper
+  include SignOutHelper
 end
