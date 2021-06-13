@@ -12,7 +12,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
 
     get skills_path
 
-    assert_response :forbidden
+    assert_redirected_to dashboards_path
   end
 
   test 'should get index' do
