@@ -1,5 +1,5 @@
 class SkillsController < ApplicationController
-  before_action { authorize(:admin) }
+  before_action -> { authorize(:admin) }
 
   before_action :set_skill, only: [:show, :edit, :update]
 
