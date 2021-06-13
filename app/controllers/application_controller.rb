@@ -1,9 +1,11 @@
 class ApplicationController < ActionController::Base
   private
-  def authorize(role)
+  def authorize(role=nil)
     return redirect_to new_sessions_path unless current_user.present?
 
-    return head :forbidden unless current_user.send(role)
+    return unless role.present?
+
+    return redirect_to dashboards_path unless current_user.send(role)
   end
 
   def current_user
