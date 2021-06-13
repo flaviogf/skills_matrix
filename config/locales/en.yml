@@ -30,32 +30,4 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  application:
-    back: Back
-    skills: Skills
-    sign_out: Sign Out
-
-  users:
-    new:
-      sign_in: Sign In
-    create:
-      success: User successfully created!
-    show:
-      email: 'Email: %{email}'
-      role: 'Role: %{role}'
-
-  sessions:
-    new:
-      sign_up: Sign Up
-    create:
-      success: Welcome back!
-
-  skills:
-    index:
-      new: New skill
-    create:
-      success: Skill successfully created!
-    show:
-      edit: 'Edit Skill'
-    update:
-      success: Skill successfully updated!
+  hello: "Hello world"
