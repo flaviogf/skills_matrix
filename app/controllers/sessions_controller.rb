@@ -17,6 +17,12 @@ class SessionsController < ApplicationController
     redirect_to user, notice: I18n.t('sessions.create.success')
   end
 
+  def destroy
+    session[:user_id] = nil
+
+    redirect_to new_sessions_path
+  end
+
   private
   def session_params
     params.require(:session).permit(:email, :password)
