@@ -32,8 +32,8 @@
 en:
   application:
     back: Back
-    profile: Profile
     skills: Skills
+    sign_out: Sign Out
 
   users:
     new:
