@@ -14,7 +14,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
     assert_equal user.id, session[:user_id]
 
-    assert_redirected_to user_path(user)
+    assert_redirected_to dashboards_path
   end
 
   test 'should not create session when attributes are invalid' do

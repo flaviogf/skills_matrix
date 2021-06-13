@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 
     session[:user_id] = user.id
 
-    redirect_to user, notice: I18n.t('sessions.create.success')
+    redirect_to dashboards_path, notice: I18n.t('sessions.create.success')
   end
 
   def destroy
