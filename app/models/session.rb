@@ -3,7 +3,7 @@ class Session
 
   attr_accessor :email, :password
 
-  validates :email, presence: true, format: { with: /\A[^@\s]+@[^@\s]+\z/ }
+  validates :email, presence: true, email: true
 
   validates :password, presence: true
 

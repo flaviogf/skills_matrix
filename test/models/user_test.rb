@@ -2,7 +2,7 @@ require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
   test 'should be true if email is valid' do
-    user = User.new(email: 'frank@email.com')
+    user = User.new(email: 'peter@email.com')
 
     user.valid?
 
@@ -19,6 +19,14 @@ class UserTest < ActiveSupport::TestCase
 
   test 'should be false if email is invalid' do
     user = User.new(email: 'frank')
+
+    user.valid?
+
+    assert_not user.errors[:email].empty?
+  end
+
+  test 'should be false if email is already taken' do
+    user = User.new(email: 'frank@email.com')
 
     user.valid?
 

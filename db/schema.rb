@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_13_155430) do
+ActiveRecord::Schema.define(version: 2021_06_13_163538) do
+
+  create_table "developers", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "skills", force: :cascade do |t|
     t.string "name"
