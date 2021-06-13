@@ -4,7 +4,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
   test 'should not get index if user is not authenticated' do
     get skills_path
 
-    assert_redirected_to new_session_url
+    assert_redirected_to new_sessions_url
   end
 
   test 'should not get index if user is not authorized' do
