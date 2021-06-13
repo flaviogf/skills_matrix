@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action -> { authorize(:staff) }, only: [:show]
+
   def new
     @user = Role.staff.users.new
   end
@@ -7,7 +9,7 @@ class UsersController < ApplicationController
     @user = Role.staff.users.new(user_params)
 
     if @user.save
-      redirect_to @user, notice: I18n.t('users.create.success')
+      redirect_to new_sessions_path, notice: I18n.t('users.create.success')
     else
       render :new, status: :unprocessable_entity
     end

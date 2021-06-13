@@ -19,7 +19,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to user_path(User.last)
+    assert_redirected_to new_sessions_path
   end
 
   test 'should not create user when attributes are invalid' do
@@ -36,8 +36,18 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get show' do
-    get user_path(users(:regular))
+    user = users(:regular)
+
+    sign_in user
+
+    get user_path(user)
 
     assert_response :success
+  end
+
+  test 'should not get show if user is not authenticated' do
+    get user_path(users(:regular))
+
+    assert_redirected_to new_sessions_path
   end
 end
