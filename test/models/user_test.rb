@@ -40,4 +40,20 @@ class UserTest < ActiveSupport::TestCase
 
     assert_not user.errors[:name].empty?
   end
+
+  test 'is_admin? should be true' do
+    assert users(:admin).is_admin?
+  end
+
+  test 'is_admin? should be false' do
+    assert_not users(:regular).is_admin?
+  end
+
+  test 'is_staff? should be true' do
+    assert users(:regular).is_staff?
+  end
+
+  test 'is_staff? should be false' do
+    assert_not users(:admin).is_staff?
+  end
 end
