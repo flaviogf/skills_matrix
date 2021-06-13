@@ -38,4 +38,42 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :unprocessable_entity
   end
+
+  test 'should get show' do
+    get skill_path(skills(:ruby))
+
+    assert_response :success
+  end
+
+  test 'should get edit' do
+    get edit_skill_path(skills(:ruby))
+
+    assert_response :success
+  end
+
+  test 'should update skill' do
+    skill = skills(:ruby)
+
+    put skill_path(skill), params: { skill: { name: 'golang' } }
+
+    skill.reload
+
+    assert_equal 'golang', skill.name
+
+    assert_redirected_to skill_path(skill)
+  end
+
+  test 'should not update skill if attributes are invalid' do
+    skill = skills(:ruby)
+
+    put skill_path(skill), params: { skill: { name: '' } }
+
+    assert_response :unprocessable_entity
+  end
+
+  test 'should destroy skill' do
+    assert_difference('Skill.count', -1) do
+      delete skill_path(skills(:ruby))
+    end
+  end
 end
