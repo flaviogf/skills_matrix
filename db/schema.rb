@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_13_163538) do
+ActiveRecord::Schema.define(version: 2021_06_14_124905) do
+
+  create_table "developer_skills", force: :cascade do |t|
+    t.integer "developer_id", null: false
+    t.integer "skill_id", null: false
+    t.integer "points"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["developer_id"], name: "index_developer_skills_on_developer_id"
+    t.index ["skill_id"], name: "index_developer_skills_on_skill_id"
+  end
 
   create_table "developers", force: :cascade do |t|
     t.string "email"
@@ -31,4 +41,6 @@ ActiveRecord::Schema.define(version: 2021_06_13_163538) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "developer_skills", "developers"
+  add_foreign_key "developer_skills", "skills"
 end

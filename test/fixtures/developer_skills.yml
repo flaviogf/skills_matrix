@@ -1,0 +1,6 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+peter_ruby:
+  developer: peter
+  skill: ruby
+  points: 5
