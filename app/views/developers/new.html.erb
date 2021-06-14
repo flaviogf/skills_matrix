@@ -1,0 +1,18 @@
+<%= form_with model: @developer do |form| %>
+  <div>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <% Skill.find_each do |skill| %>
+    <%= form.fields_for :developer_skills, @developer.developer_skills.build(skill: skill) do |skill_fields| %>
+      <div>
+        <%= skill_fields.hidden_field :skill_id %>
+        <%= skill_fields.label :points, skill_fields.object.skill.name %>
+        <%= skill_fields.range_field :points, in: 0..5 %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= form.submit %>
+<% end %>
