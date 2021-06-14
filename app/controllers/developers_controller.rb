@@ -15,6 +15,6 @@ class DevelopersController < ApplicationController
 
   private
   def developer_params
-    params.require(:developer).permit(:email)
+    params.require(:developer).permit(:email, developer_skills_attributes: [:skill_id, :points])
   end
 end

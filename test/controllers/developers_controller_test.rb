@@ -9,7 +9,14 @@ class DevelopersControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create developer' do
     assert_difference('Developer.count') do
-      post developers_path, params: { developer: { email: 'frank@email.com' } }
+      post developers_path, params: {
+        developer: {
+          email: 'frank@email.com',
+          developer_skills_attributes: [
+            { skill_id: skills(:ruby).id, points: 5 }
+          ]
+        }
+      }
     end
 
     assert_redirected_to new_developer_path
