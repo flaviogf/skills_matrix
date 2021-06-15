@@ -31,3 +31,15 @@
 
 en:
   hello: "Hello world"
+  developers:
+    create:
+      success: Thanks for your answers
+    new:
+      email:
+        label: 'What is your email? *'
+        placeholder: Your email
+      points:
+        label: 'How good are you in %{skill}? *'
+      submit: Submit
+      title: Developer Skill Matrix
+      description: Thanks for participate
