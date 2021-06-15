@@ -1,11 +1,11 @@
-$background-color: #f1f3f5;
-$button-background-color: #1272de;
-$button-text-color: white;
-$form-background-color: white;
-$input-border-color: #97a1ac;
-$input-focus-border-color: $button-background-color;
-
 .sessions-new {
+  $background-color: #f1f3f5;
+  $button-background-color: #1272de;
+  $button-text-color: white;
+  $form-background-color: white;
+  $input-border-color: #97a1ac;
+  $input-focus-border-color: $button-background-color;
+
   background-color: $background-color;
   height: 100%;
   padding: 16px;
@@ -23,7 +23,7 @@ $input-focus-border-color: $button-background-color;
     }
 
     @media screen and(min-width: 425px) {
-      padding: 64px;
+      padding: 45px;
     }
   }
 
