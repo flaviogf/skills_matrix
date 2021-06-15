@@ -1,4 +1,7 @@
 class DevelopersController < ApplicationController
+  def index
+  end
+
   def new
     @developer = Developer.new
   end

@@ -27,4 +27,10 @@ class DevelopersControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :unprocessable_entity
   end
+
+  test 'should get index' do
+    get developers_path
+
+    assert_response :success
+  end
 end
