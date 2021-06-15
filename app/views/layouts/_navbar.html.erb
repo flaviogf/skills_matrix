@@ -1,0 +1,7 @@
+<nav class="navbar">
+  <ul class="navbar__list">
+    <li class="navbar__item <%= 'navbar__item--active' if request.original_url == skills_url %>"><%= link_to t('navbar.skills'), skills_path %></li>
+    <li class="navbar__item <%= 'navbar__item--active' if request.original_url == developers_url %>"><%= link_to t('navbar.developers'), developers_path %></li>
+    <li class="navbar__item navbar__item--right"><%= link_to t('navbar.sign_out'), sessions_path, method: :delete %></li>
+  </ul>
+</nav>

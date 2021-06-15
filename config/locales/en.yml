@@ -31,6 +31,10 @@
 
 en:
   hello: "Hello world"
+  navbar:
+    skills: Skills
+    developers: Developers
+    sign_out: Sign Out
   sessions:
     new:
       title: Hi!
@@ -40,10 +44,10 @@ en:
       success: Your response has been recorded.
     new:
       email:
-        label: 'What is your email? *'
+        label: "What is your email? *"
         placeholder: Your email
       points:
-        label: 'How good are you in %{skill}? *'
+        label: "How good are you in %{skill}? *"
       submit: Submit
       title: Skill Matrix
       description: Thanks for participate
