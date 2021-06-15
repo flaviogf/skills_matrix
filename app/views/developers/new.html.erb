@@ -1,18 +1,32 @@
-<%= form_with model: @developer do |form| %>
-  <div>
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+<main class="developers-new">
+  <%= form_with model: @developer do |form| %>
+    <header class="developers-new__header">
+      <h1><%= t 'developers.new.title' %></h1>
+      <p><%= t 'developers.new.description' %></p>
+    </header>
 
-  <% Skill.find_each do |skill| %>
-    <%= form.fields_for :developer_skills, @developer.developer_skills.build(skill: skill) do |skill_fields| %>
-      <div>
-        <%= skill_fields.hidden_field :skill_id %>
-        <%= skill_fields.label :points, skill_fields.object.skill.name %>
-        <%= skill_fields.range_field :points, in: 0..5 %>
-      </div>
+    <div class="developers-new__form-group">
+      <%= form.label :email, t('developers.new.email.label'), class: 'developers-new__form-label' %>
+      <%= form.text_field :email, placeholder: t('developers.new.email.placeholder'), class: 'developers-new__form-input' %>
+    </div>
+
+    <% Skill.find_each do |skill| %>
+      <%= form.fields_for :developer_skills, @developer.developer_skills.build(skill: skill) do |skill_fields| %>
+        <div class="developers-new__form-group">
+          <%= skill_fields.hidden_field :skill_id %>
+          <span><%= t 'developers.new.points.label', skill: skill_fields.object.skill.name %></span>
+          <div class="developers-new__form-radio-group">
+            <% 1.upto(5) do |i| %>
+              <div class="developers-new__form-radio">
+                <%= skill_fields.label :points, i %>
+                <%= skill_fields.radio_button :points, i %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
 
-  <%= form.submit %>
-<% end %>
+    <%= form.submit t('developers.new.submit'), class: 'developers-new__submit' %>
+  <% end %>
+</main>

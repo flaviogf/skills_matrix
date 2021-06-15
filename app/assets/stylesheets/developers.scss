@@ -1,3 +1,101 @@
-// Place all the styles related to the developers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+$button-background-color: #1272de;
+$button-text-color: white;
+$input-border-color: #97a1ac;
+$header-border-top-color: $button-background-color;
+
+@mixin card {
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  display: flex;
+  flex-direction: column;
+  margin-top: 13px;
+  padding: 16px;
+}
+
+.developers-new {
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 16px;
+
+  &__header {
+    @include card;
+
+    border-radius: 13px 13px 0 0;
+    position: relative;
+
+    &::before {
+      background-color: $header-border-top-color;
+      border-radius: 13px 13px 0 0;
+      content: "";
+      height: 13px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    h1 {
+      font-size: 21px;
+      font-weight: 600;
+      margin-top: 13px;
+    }
+
+    p {
+      margin-top: 8px;
+    }
+  }
+
+  &__form-group {
+    @include card;
+  }
+
+  &__form-label {
+  }
+
+  &__form-input {
+    border: none;
+    border-bottom: 1px solid $input-border-color;
+    font-size: 14px;
+    height: 35px;
+    margin-top: 13px;
+    outline: none;
+    padding: 5px 0px;
+    width: 100%;
+  }
+
+  &__form-radio-group {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 13px;
+  }
+
+  &__form-radio {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    input {
+      cursor: pointer;
+      margin-top: 5px;
+    }
+  }
+
+  &__submit {
+    background-color: $button-background-color;
+    border: none;
+    border-radius: 3px;
+    color: $button-text-color;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 13px;
+    outline: none;
+    padding: 13px 21px;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: lighten($button-background-color, 5%);
+    }
+  }
+}
