@@ -1,4 +1,6 @@
 en:
+  alert:
+    confirm: Are you sure?
   email_validator:
     message: can't be invalid
   navbar:
@@ -14,7 +16,20 @@ en:
         label: Password
         placeholder: Password
       submit: Next
+  skills:
+    index:
+      title: Skills
+      id: Id
+      name: Name
+      created_at: Created At
+      actions: Actions
   developers:
+    index:
+      title: Developers
+      id: Id
+      email: Email
+      created_at: Created At
+      actions: Actions
     create:
       success: Your response has been recorded.
     new:
