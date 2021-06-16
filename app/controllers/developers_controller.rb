@@ -1,4 +1,6 @@
 class DevelopersController < ApplicationController
+  before_action :authorize, only: [:index]
+
   def index
     @developers = Developer.all
   end

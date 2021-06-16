@@ -29,8 +29,16 @@ class DevelopersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
+    sign_in users(:frank)
+
     get developers_path
 
     assert_response :success
+  end
+
+  test 'should not get index if user is not authorized' do
+    get developers_path
+
+    assert_redirected_to new_sessions_path
   end
 end
