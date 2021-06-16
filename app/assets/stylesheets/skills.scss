@@ -22,4 +22,20 @@
   .table {
     margin-top: 21px;
   }
+
+  &__add {
+    align-items: center;
+    background-color: #2e2e2e;
+    border-radius: 100%;
+    bottom: 16px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    color: #fff;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    position: fixed;
+    right: 16px;
+    text-decoration: none;
+    width: 50px;
+  }
 }
