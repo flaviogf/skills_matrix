@@ -1,3 +1,6 @@
+.developers-index {
+}
+
 .developers-new {
   $button-background-color: #1272de;
   $button-text-color: white;
@@ -98,11 +101,4 @@
       background-color: lighten($button-background-color, 5%);
     }
   }
-}
-
-.developers-index {
-  $background-color: #f1f3f5;
-
-  background-color: $background-color;
-  height: calc(100% - 64px);
 }
