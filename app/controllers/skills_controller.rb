@@ -3,7 +3,12 @@ class SkillsController < ApplicationController
   before_action :set_skill, only: [:edit, :update, :destroy]
 
   def index
-    @skills = Skill.all
+    @skills = Skill.includes(:developer_skills)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @skills, include: [:developer_skills] }
+    end
   end
 
   def new

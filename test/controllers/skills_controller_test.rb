@@ -11,6 +11,15 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should get index as json' do
+    get skills_path, as: :json
+
+    body = response.parsed_body
+
+    assert_equal 1, body.size
+    assert_equal 1, body.first['developer_skills'].size
+  end
+
   test 'should not get index if user is not authenticated' do
     sign_out
 
