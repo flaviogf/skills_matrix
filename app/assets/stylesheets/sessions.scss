@@ -4,12 +4,24 @@
 
   &::before {
     background-color: #2e2e2e;
-    content: '';
+    content: "";
     height: 4px;
     left: 0;
     position: fixed;
     right: 0;
     top: 0;
+  }
+
+  .field_with_errors {
+    label {
+      color: #9f3a38;
+    }
+
+    input {
+      background-color: #fff6f6;
+      border-color: #e0b4b4;
+      color: #9f3a38;
+    }
   }
 
   h1 {
@@ -33,7 +45,7 @@
   }
 
   &__form-input {
-    border: 1px solid rgba(34,36,38,.15);
+    border: 1px solid rgba(34, 36, 38, 0.15);
     border-radius: 3px;
     height: 38px;
     margin-top: 5px;
@@ -50,7 +62,7 @@
     background-color: #e0e1e2;
     border: none;
     border-radius: 3px;
-    color: rgba(0,0,0,.6);
+    color: rgba(0, 0, 0, 0.6);
     cursor: pointer;
     font-weight: 600;
     height: 40px;
@@ -61,7 +73,34 @@
 
     &:hover {
       background-color: darken(#e0e1e1, 10%);
-      color: darken(rgba(0,0,0,.6), 10%);
+      color: darken(rgba(0, 0, 0, 0.6), 10%);
+    }
+  }
+
+  &__errors {
+    background-color: #fff6f6;
+    border: 1px solid #e0b4b4;
+    border-radius: 3px;
+    color: #9f3a38;
+    font-size: 14px;
+    margin-top: 8px;
+    padding: 16px;
+
+    ul {
+      list-style: initial;
+      margin: 0 16px;
+    }
+
+    li {
+      margin: 5px 0;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
     }
   }
 }

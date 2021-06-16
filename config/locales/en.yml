@@ -1,4 +1,6 @@
 en:
+  email_validator:
+    message: can't be invalid
   navbar:
     skills: Skills
     developers: Developers

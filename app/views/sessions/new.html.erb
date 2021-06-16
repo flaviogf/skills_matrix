@@ -14,4 +14,14 @@
 
     <%= form.submit t('.submit'), class: 'sessions-new__submit' %>
   <% end %>
+
+  <% unless @session.errors.empty? %>
+    <div class="sessions-new__errors">
+      <ul>
+        <% @session.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 </main>
