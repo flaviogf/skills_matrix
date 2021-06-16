@@ -41,4 +41,14 @@ class DevelopersControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to new_sessions_path
   end
+
+  test 'should delete developer' do
+    sign_in users(:frank)
+
+    assert_difference('Developer.count', -1) do
+      delete developer_path(developers(:peter))
+    end
+
+    assert_redirected_to developers_path
+  end
 end

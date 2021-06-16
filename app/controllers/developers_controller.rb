@@ -1,5 +1,6 @@
 class DevelopersController < ApplicationController
   before_action :authorize, only: [:index]
+  before_action :set_developer, only: [:destroy]
 
   def index
     @developers = Developer.all
@@ -19,7 +20,17 @@ class DevelopersController < ApplicationController
     end
   end
 
+  def destroy
+    @developer.destroy
+
+    redirect_to developers_path
+  end
+
   private
+  def set_developer
+    @developer = Developer.find(params[:id])
+  end
+
   def developer_params
     params.require(:developer).permit(:email, developer_skills_attributes: [:skill_id, :points])
   end

@@ -20,9 +20,6 @@
           <td><%= l(developer.created_at, format: :short) %></td>
           <td>
             <div class="table__actions">
-              <%= link_to edit_developer_path(developer), class: 'table__action table__action--edit' do %>
-                <span class="material-icons">edit</span>
-              <% end %>
               <%= link_to developer, method: :delete, data: { confirm: t('alert.confirm') }, class: 'table__action table__action--delete' do %>
                 <span class="material-icons">delete</span>
               <% end %>
