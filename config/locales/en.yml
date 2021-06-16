@@ -6,6 +6,8 @@ en:
   navbar:
     skills: Skills
     developers: Developers
+    matrix: Matrix
+    exit: Exit
   sessions:
     new:
       title: Hi!
