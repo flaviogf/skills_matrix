@@ -30,19 +30,13 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
       post skills_path, params: { skill: { name: 'Ruby' } }
     end
 
-    assert_redirected_to skill_path(Skill.last)
+    assert_redirected_to skills_path
   end
 
   test 'should not create if attributes are invalid' do
     post skills_path, params: { skill: { name: '' } }
 
     assert_response :unprocessable_entity
-  end
-
-  test 'should get show' do
-    get skill_path(skills(:ruby))
-
-    assert_response :success
   end
 
   test 'should get edit' do
@@ -60,7 +54,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
 
     assert_equal 'golang', skill.name
 
-    assert_redirected_to skill_path(skill)
+    assert_redirected_to skills_path
   end
 
   test 'should not update skill if attributes are invalid' do
@@ -75,5 +69,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Skill.count', -1) do
       delete skill_path(skills(:ruby))
     end
+
+    assert_redirected_to skills_path
   end
 end

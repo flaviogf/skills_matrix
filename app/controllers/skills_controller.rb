@@ -1,6 +1,6 @@
 class SkillsController < ApplicationController
   before_action :authorize
-  before_action :set_skill, only: [:show, :edit, :update, :destroy]
+  before_action :set_skill, only: [:edit, :update, :destroy]
 
   def index
     @skills = Skill.all
@@ -14,13 +14,10 @@ class SkillsController < ApplicationController
     @skill = Skill.new(skill_params)
 
     if @skill.save
-      redirect_to @skill, notice: I18n.t('skills.create.success')
+      redirect_to skills_path, notice: I18n.t('skills.create.success')
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def show
   end
 
   def edit
@@ -28,7 +25,7 @@ class SkillsController < ApplicationController
 
   def update
     if @skill.update(skill_params)
-      redirect_to @skill, notice: I18n.t('skills.update.success')
+      redirect_to skills_path, notice: I18n.t('skills.update.success')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -36,6 +33,8 @@ class SkillsController < ApplicationController
 
   def destroy
     @skill.destroy!
+
+    redirect_to skills_path
   end
 
   private

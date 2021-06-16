@@ -23,6 +23,15 @@ en:
       name: Name
       created_at: Created At
       actions: Actions
+    new:
+      title: New Skill
+    edit:
+      title: Edit Skill
+    form:
+      name:
+        label: Name
+        placeholder: Name
+      submit: Confirm
   developers:
     index:
       title: Developers

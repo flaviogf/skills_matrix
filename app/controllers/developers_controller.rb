@@ -21,7 +21,7 @@ class DevelopersController < ApplicationController
   end
 
   def destroy
-    @developer.destroy
+    @developer.destroy!
 
     redirect_to developers_path
   end
