@@ -1,3 +1,20 @@
-<%= render 'shared/navbar' %>
-
-<main class="skills-index"></main>
+<main class="skills-index">
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @skills.each do |skill| %>
+        <tr>
+          <td><%= skill.id %></td>
+          <td><%= skill.name %></td>
+          <td><%= l(skill.created_at, format: :short) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</main>
