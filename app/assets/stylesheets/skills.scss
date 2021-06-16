@@ -3,6 +3,16 @@
   max-width: 720px;
   width: 100%;
 
+  &::before {
+    background-color: #2e2e2e;
+    content: "";
+    height: 4px;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+
   table {
     border-collapse: initial;
     table-layout: fixed;

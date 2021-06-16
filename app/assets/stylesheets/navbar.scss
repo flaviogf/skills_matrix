@@ -1,2 +1,23 @@
 .navbar {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+
+  &__item {
+    align-items: center;
+    background-color: #e0e1e2;
+    border-radius: 21px;
+    display: flex;
+    font-size: 14px;
+    font-weight: 600;
+    height: 24px;
+    margin: 5px 0;
+    max-width: 85px;
+    padding: 0 8px;
+
+    a {
+      color: rgba(0, 0, 0, 0.6);
+      text-decoration: none;
+    }
+  }
 }
