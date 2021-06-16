@@ -43,6 +43,7 @@
   max-width: 720px;
   padding: 16px;
 
+
   &__header {
     @include card;
 
@@ -76,9 +77,14 @@
   }
 
   &__form-label {
+    color: black !important;
   }
 
   &__form-input {
+    background-color: white !important;
+    border-color: $input-border-color !important;
+    color: black !important;
+
     border: none;
     border-bottom: 1px solid $input-border-color;
     font-size: 14px;

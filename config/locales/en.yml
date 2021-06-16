@@ -45,8 +45,8 @@ en:
       title: Skill Matrix
       description: Thanks for participate
       email:
-        label: "What is your email? *"
+        label: "What is your email?"
         placeholder: Your email
       points:
-        label: "How good are you in %{skill}? *"
+        label: "How proficient are you with %{skill}?"
       submit: Submit
