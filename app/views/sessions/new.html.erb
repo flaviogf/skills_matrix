@@ -1,17 +1,17 @@
 <main class="sessions-new">
   <%= form_with model: @session do |form| %>
-    <h1><%= t 'sessions.new.title' %></h1>
+    <h1><%= t '.title' %></h1>
 
     <div class="sessions-new__form-group">
-      <%= form.label :email, class: 'sessions-new__form-label' %>
-      <%= form.text_field :email, class: 'sessions-new__form-input' %>
+      <%= form.label :email, t('.email.label'), class: 'sessions-new__form-label' %>
+      <%= form.text_field :email, class: 'sessions-new__form-input', placeholder: t('.email.placeholder') %>
     </div>
 
     <div class="sessions-new__form-group">
-      <%= form.label :password, class: 'sessions-new__form-label' %>
-      <%= form.password_field :password, class: 'sessions-new__form-input' %>
+      <%= form.label :password, t('.password.label'), class: 'sessions-new__form-label' %>
+      <%= form.password_field :password, class: 'sessions-new__form-input', placeholder: t('.password.placeholder') %>
     </div>
 
-    <%= form.submit t('sessions.new.submit'), class: 'sessions-new__submit' %>
+    <%= form.submit t('.submit'), class: 'sessions-new__submit' %>
   <% end %>
 </main>
